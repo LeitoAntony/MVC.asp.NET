@@ -107,3 +107,6 @@ C:\Users\userrfid\Documents\ProyectosVisualStudio2013\MVCRepository\MVCTutorial1
 C:\Users\userrfid\Documents\ProyectosVisualStudio2013\MVCRepository\MVCTutorial1\obj\Debug\MVCTutorial1.csprojResolveAssemblyReference.cache
 C:\Users\userrfid\Documents\ProyectosVisualStudio2013\MVCRepository\MVCTutorial1\obj\Debug\MVCTutorial1.dll
 C:\Users\userrfid\Documents\ProyectosVisualStudio2013\MVCRepository\MVCTutorial1\obj\Debug\MVCTutorial1.pdb
+C:\Users\userrfid\Documents\ProyectosVisualStudio2013\MVCRepository\MVCTutorial1\obj\Debug\MVCTutorial1.Migrations.InitialCreate.resources
+C:\Users\userrfid\Documents\ProyectosVisualStudio2013\MVCRepository\MVCTutorial1\obj\Debug\MVCTutorial1.csproj.GenerateResource.Cache
+C:\Users\userrfid\Documents\ProyectosVisualStudio2013\MVCRepository\MVCTutorial1\obj\Debug\MVCTutorial1.Migrations.AddRemarksFieldToModelProduct.resources

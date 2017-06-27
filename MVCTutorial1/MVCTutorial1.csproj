@@ -166,6 +166,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706271519300_InitialCreate.cs" />
+    <Compile Include="Migrations\201706271519300_InitialCreate.Designer.cs">
+      <DependentUpon>201706271519300_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706271715151_AddRemarksFieldToModelProduct.cs" />
+    <Compile Include="Migrations\201706271715151_AddRemarksFieldToModelProduct.Designer.cs">
+      <DependentUpon>201706271715151_AddRemarksFieldToModelProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -230,9 +239,9 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -244,6 +253,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706271519300_InitialCreate.resx">
+      <DependentUpon>201706271519300_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706271715151_AddRemarksFieldToModelProduct.resx">
+      <DependentUpon>201706271715151_AddRemarksFieldToModelProduct.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
