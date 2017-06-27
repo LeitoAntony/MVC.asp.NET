@@ -2,7 +2,9 @@
 using MVCTutorial1.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,9 +22,15 @@ namespace MVCTutorial1.Controllers
         }
 
         // GET: Product/Details/5
-        public ActionResult Details(int id)
+        //int? receives an optional parameter
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)//returns an exception
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var product = context.Products.Find(id);
+            if (product == null)//redirect to a
+                return HttpNotFound();
+            return View(product);
         }
 
         // GET: Product/Create
@@ -54,46 +62,69 @@ namespace MVCTutorial1.Controllers
         }
 
         // GET: Product/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)//returns an exception
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var product = context.Products.Find(id);
+            if (product == null)//redirect to a
+                return HttpNotFound();
+            return View(product);
         }
 
         // POST: Product/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Product product)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if(ModelState.IsValid)
+                {
+                    context.Entry(product).State = EntityState.Modified;
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(product);               
             }
             catch
             {
-                return View();
+                return View(product);
             }
         }
 
         // GET: Product/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)//returns an exception
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            var product = context.Products.Find(id);
+            if (product == null)//redirect to a
+                return HttpNotFound();
+            return View(product);
         }
 
         // POST: Product/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Product product)
         {
             try
             {
-                // TODO: Add delete logic here
-
+                if (ModelState.IsValid)
+                {
+                    product = context.Products.Find(id);
+                    if (product == null)
+                    {
+                        return HttpNotFound();
+                    }
+                    context.Products.Remove(product);
+                    context.SaveChanges();
                 return RedirectToAction("Index");
+                }
+                return View(product);
             }
             catch
             {
-                return View();
+                return View(product);
             }
         }
     }
