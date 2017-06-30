@@ -1,0 +1,35 @@
+﻿@model List<MVCTutorialGavilan.Models.Film>
+@{
+    ViewBag.Title = "Film";
+    Layout = null; @*no carga el layout por defecto porque entra en look infinito*@
+}
+
+<h2>Film</h2>
+
+<div>
+    Mostrando @Model.Count Peliculas
+</div>
+   <table class="table table-striped">
+    <thead>       
+        <tr>
+            <th>Título</th>
+            <th>Género</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @*if compacto*@
+            var row = (!item.OnTheBill) ? "danger" : string.Empty;
+            <tr class="@row">
+                <td>@item.Title</td>
+                <td>@item.Gender</td>
+            </tr>
+        }
+
+    </tbody>       
+</table>
+
+@Html.ActionLink("Mi about", "About", "Home", null,
+new { miAtributo = "Valor ", @class = "btn btn-danger"})
+
